@@ -25,7 +25,6 @@ function createHtml(page_path) {
 			infoData = {};
 
 		try {
-			// todo: ch=== WARNING ===or
 			infoJson = fs.readFileSync("/pagesInfo.json", "utf-8");
 			infoData = JSON.parse(infoJson);
 		} catch (err) {

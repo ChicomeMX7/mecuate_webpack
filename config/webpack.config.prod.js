@@ -3,9 +3,6 @@ const path = require("path");
 const createHtml = require("./create-html");
 let htmlPath = path.join(__dirname, "../src/pages/");
 const htmlArr = createHtml(htmlPath);
-const value = {
-	mode: "production",
-};
 
 
 module.exports = {
@@ -67,6 +64,6 @@ module.exports = {
 		filename: "code/[name].bundle.js",
 		publicPath: path.join(__dirname, "../../htdocs/"), // compiled
 	},
-	mode: value.mode ? value.mode : "development",
+	mode: "production",
 	plugins: [...htmlArr],	
 };
