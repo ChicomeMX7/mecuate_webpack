@@ -1,69 +1,51 @@
-const fs = require("fs");
 const path = require("path");
-const createHtml = require("./create-html");
-let htmlPath = path.join(__dirname, "../src/pages/");
-const htmlArr = createHtml(htmlPath);
+const entryPoints = require("./custom.utils/getEntry");
+const createHTML = require("./custom.utils/createHTML");
+const pagesHTML = createHTML(path.join(__dirname, "../src/pages/"));
+
 
 
 module.exports = {
+	entry: entryPoints,
+	output: {
+		path: path.join(__dirname, "../../htdocs"),
+		filename: "code/[name].bundle.js",
+	},
+	mode: "development",
+	resolve: {
+		extensions: [".tsx", ".ts"/* , ".js" */],
+	},
+	plugins: [...pagesHTML],
 	module: {
 		rules: [
 			{
 				test: /\.(ts|tsx)$/,
-				exclude: /node_modules/,
+				exclude: [/node_modules/, /config/],
 				use: ["ts-loader", "babel-loader"],
 			},
 			{
 				test: /\.(html|htm|pub)$/,
 				exclude: [/node_modules/, /config/],
-				use: {
-					loader: "html-loader",
-					options: {
-						attrs: ["img:src", "link:href"],
-					},
-				},
+				use: ["html-loader", "file-loader"],
 			},
 			{
 				test: /\.(s[ac]ss|css)$/,
-				use: [
-					"style-loader",
-					"css-loader",
-					"sass-loader",
-				],
 				exclude: [/node_modules/, /config/],
+				use: ["style-loader", "css-loader", "sass-loader"],
 			},
 		],
 	},
 	externalsType: "script",
 	externals: {
-		"react-dom": ["/code/cdn/react-dom.js","ReactDOM"],
+		"react-dom": ["/code/cdn/react-dom.js", "ReactDOM"],
 		react: ["/code/cdn/react.js", "React"],
 	},
 	devServer: {
-		static: {
-			directory: path.join(__dirname, "../../htdocs/"),/* compiled */
-			serveIndex: true,
-		},
+		static: path.join(__dirname, "../../htdocs"),
 		compress: false,
-		port: 9000,
+		port: 9898,
 		open: true,
 		hot: true,
 	},
-	devtool: false,
-	resolve: {
-		extensions: [".tsx", ".ts", ".js"],
-	},
-	entry: {
-		index: "./src/components/index/index.tsx",
-		home: "./src/components/home/home.tsx",
-		contact: "./src/components/contact/contact.tsx",
-		user: "./src/components/user/user.tsx",
-	},
-	output: {
-		path: path.join(__dirname, "../../htdocs/"), // compiled
-		filename: "code/[name].bundle.js",
-		publicPath: path.join(__dirname, "../../htdocs/"), // compiled
-	},
-	mode: "development",
-	plugins: [...htmlArr],	
+	devtool: "eval",
 };

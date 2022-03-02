@@ -8,17 +8,10 @@
 import React from "react";
 import ReactDom from "react-dom";
 import "../../styles/main.sass";
+import { LandPage } from "./LandPage";
 
-function Hei(props) {
-	return (
-		<div>
-			<h1 id="name_of_title">{props.name}</h1>
-			<h4>RECIEVING THE PARAMETER</h4>
-			<span>{new Date().toDateString()}</span>
-		</div>
-	);
-}
+// execution
 
-const appElement = document.getElementById("app");
+const appElement = document.getElementById("root");
 
-ReactDom.render(<Hei name="green" />, appElement);
+ReactDom.render(<LandPage name="land page" color="green" />, appElement);

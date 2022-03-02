@@ -1,5 +1,5 @@
 ///<reference  path="../../../src/typings/main.d.ts"/>
-import * as React from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import { Fun_trex_ } from "./user_component";
 

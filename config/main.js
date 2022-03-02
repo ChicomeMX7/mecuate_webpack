@@ -12,106 +12,102 @@ const fs = require("fs");
 const path = require("path");
 const process = require("process");
 const child_process = require("child_process");
-const { callbackify } = require("util");
+
+const UTF8 = { encoding: "utf8" };
 
 const param = (function org_params(val) {
 	let total_instructions = val.slice(2, val.length);
 	return total_instructions;
 })(process.argv);
 
-const stdout = (str, pathFile, ext = null) => {
-	let file_adress = `${pathFile}/out-${Date.now()}.${ext ? ext : ".log"}`;
-	let data2save = `///pepe --output ${fecha.utc} \n\n ${str}`;
-	let outsize = data2save.length * 8;
-	fs.writeFile(file_adress, data2save, (err) => {
-		if (err) throw err;
-		console.log(`Data log saved :[${outsize}]Kib --${fecha.date}`);
-	});
-};
-const error = ({ a, b, c }) => {
-	let origin = a;
-	let message = b;
-	let inst = c || null;
-	let complete = `Error in [${origin}] det:[${JSON.stringify(message).substring(0, 18)}...]${inst ? inst : "."}`;
-};
+
+function ui(typ = "0", msg = "null") {
+	return {
+		error: (m) => {
+			return `\x1b[48;2;231;72;86m\x1b[38;5;253m\x1b[1m ${m}  \x1b[0m\x1b[38;2;231;72;86m   Error!\x1b[0m`;
+		},
+		warn: (m) => {
+			return `\x1b[48;2;252;127;0m\x1b[38;5;253m\x1b[1m ${m}  \x1b[0m\x1b[38;2;252;127;0m    Warning!\x1b[0m`;
+		},
+		show: (m) => {
+			return `\x1b[48;2;13;188;121m\x1b[38;5;253m\x1b[1m ${m}  \x1b[0m\x1b[38;2;13;188;121m      OK\x1b[0m`;
+		},
+	}[typ](msg);
+}
 
 function main(ins) {
-
-	if (ins[0] === "clear") {
-		let folder = path.join(__dirname,"../../htdocs");
-		console.log("Recivied on main", ins, "as for folder:", folder);
-		fs.rmSync(folder ,{ recursive: true, force: true });
-
-	} else {
-		try {
-			fs.mkdirSync(_log, { recursive: true });
-		} catch (err) {
-			console.error(err);
-			console.log("err in main function");
-		}
-		const callback = {
-			set: (value) => {
-				console.log(
-					"RECIBED THE VALUE IN A CALLBACK FUNCTION WICH IS REALLY NOT SO IT WILL RETURN AND ADD ONE AND SOFOR SKINP ONE ITERATION TO THE INITIAL ARRAY"
-				);
-			},
-			server: (def = null) => {
-				let result = child_process.execSync("npx --version");
-				if (def) {
-					console.log(result);
-					return result;
-				} else {
-					console.log(result);
-				}
-			},
-			build: (file = null) => {
-				try {
-					let options = {
-						cwd: file.cwd || null, // <string> | <URL> Current working directory of the child process.
-						input: file.input || null, // <string> | <Buffer> | <TypedArray> | <DataView> The value which will be passed as stdin to the spawned process. Supplying this value will override stdio[0].
-						stdio: file.stdio || null, // <string> | <Array> Child's stdio configuration. stderr by default will be output to the parent process' stderr unless stdio is specified. Default: 'pipe'.
-						env: file.env || null, // <Object> Environment key-value pairs. Default: process.env.
-						shell: file.shell || null, // <string> Shell to execute the command with. See Shell requirements and Default Windows shell. Default: '/bin/sh' on Unix, process.env.ComSpec on Windows.
-						uid: file.uid || null, // <number> Sets the user identity of the process. (See setuid(2)).
-						gid: file.gid || null, // <number> Sets the group identity of the process. (See setgid(2)).
-						timeout: file.timeout || null, // <number> In milliseconds the maximum amount of time the process is allowed to run. Default: undefined.
-						killSignal: file.killSignal || null, // <string> | <integer> The signal value to be used when the spawned process will be killed. Default: 'SIGTERM'.
-						maxBuffer: file.maxBuffer || null, // <number> Largest amount of data in bytes allowed on stdout or stderr. If exceeded, the child process is terminated and any output is truncated. See caveat at maxBuffer and Unicode. Default: 1024 * 1024.
-						encoding: file.encoding || null, // <string> The encoding used for all stdio inputs and outputs. Default: 'buffer'.
-						windowsHide: file.windowsHide || null, // <boolean> Hide the subprocess console window that would normally be created on Windows systems. Default: false.
-					};
-				} catch (error) {
-					console.log("no files to build");
-				}
-				return [true, "build"];
-			},
-		};
-		function start(args) {
-			let lst;
+	const oOperations = {
+		one: (confs) => {
+			let result = child_process.execSync("npx --version && node --version", UTF8);
+			console.log("@@@ FISRT \x0a", result);
+		},
+		two: (confs) => {
+			console.log("From SECOND function", confs);
+		},
+		dev: (confs) => {
+			console.log("webpack serve --config config/webpack.config.dev.js --stats-error-details");
+		},
+		set: (confs) => {
+			console.log("THIS IS SET VALUE DEFAULT");
+		},
+		server: (confs = null) => {
+			let result = child_process.execSync("npx --version", UTF8);
+			if (confs) {
+				return result;
+			} else {
+				console.log(result);
+			}
+		},
+		nonce: (file = null) => {
 			try {
-				lst = Object.keys(args);
-			} catch (e) {
-				error("listing:cmd", e);
+				let options = {
+					cwd: file.cwd || null, // <string> | <URL> Current working directory of the child process.
+					input: file.input || null, // <string> | <Buffer> | <TypedArray> | <DataView> The value which will be passed as stdin to the spawned process. Supplying this value will override stdio[0].
+					stdio: file.stdio || null, // <string> | <Array> Child's stdio configuration. stderr by default will be output to the parent process' stderr unless stdio is specified. Default: 'pipe'.
+					env: file.env || null, // <Object> Environment key-value pairs. Default: process.env.
+					shell: file.shell || null, // <string> Shell to execute the command with. See Shell requirements and Default Windows shell. Default: '/bin/sh' on Unix, process.env.ComSpec on Windows.
+					uid: file.uid || null, // <number> Sets the user identity of the process. (See setuid(2)).
+					gid: file.gid || null, // <number> Sets the group identity of the process. (See setgid(2)).
+					timeout: file.timeout || null, // <number> In milliseconds the maximum amount of time the process is allowed to run. Default: undefined.
+					killSignal: file.killSignal || null, // <string> | <integer> The signal value to be used when the spawned process will be killed. Default: 'SIGTERM'.
+					maxBuffer: file.maxBuffer || null, // <number> Largest amount of data in bytes allowed on stdout or stderr. If exceeded, the child process is terminated and any output is truncated. See caveat at maxBuffer and Unicode. Default: 1024 * 1024.
+					encoding: file.encoding || null, // <string> The encoding used for all stdio inputs and outputs. Default: 'buffer'.
+					windowsHide: file.windowsHide || null, // <boolean> Hide the subprocess console window that would normally be created on Windows systems. Default: false.
+				};
+			} catch (error) {
+				console.log("no files to build");
 			}
-			const __map = callback;
+			return [true, "build"];
+		},
+	};
 
-			for (let i = 0; i < lst.length; i++) {
-				let curr = args[lst[i]].replace("--", "");
-				console.log("Processing: ", curr);
-				if (__map[curr]) {
-					let result = __map[curr](1);
-					console.log(result);
-				}
-			}
-			a();
-		}
+	const _func = ins[0] || null;
 
-		function a() {
-			console.log("A function is called");
-		}
+	const check = ((pool, key) => {
+		return pool.includes(key);
+	})(Object.keys(oOperations), _func);
 
-		start(ins);
+	if (!check) {
+		console.log(ui("error", "Not a command"));
+		console.log(ui("warn", "Not a command"));
+		console.log(ui("show", "Not a command"));
+		process.exit(1);
 	}
+
+	const _configs = ((items) => {
+		if (items && items.includes("+")) {
+			let _iSn = items.indexOf("+");
+			setTimeout(() => {
+				main(items.slice(_iSn + 1, items.length));
+			}, 0);
+			return items.slice(0, _iSn);
+		} else if (items) {
+			return items;
+		} else return null;
+	})(ins.slice(1, ins.length) || null);
+
+	let mainResult = oOperations[_func](_configs);
+	mainResult && console.log(mainResult);
 }
 
 main(param);

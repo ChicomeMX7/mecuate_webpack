@@ -1,7 +1,8 @@
-/* contact main box */
 ///<reference  path="../../../src/typings/main.d.ts"/>
-import React from 'react';
-export function Contact_mainBox(setup: any) {
+
+import React from "react";
+
+function Contact_mainBox(setup: any) {
 	let comp = {
 		name: setup.name,
 		color: setup.color,
@@ -15,3 +16,5 @@ export function Contact_mainBox(setup: any) {
 		</div>
 	);
 }
+
+export {Contact_mainBox};
