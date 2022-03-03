@@ -7,11 +7,10 @@
  */
 import React from "react";
 import ReactDom from "react-dom";
-import "../../styles/main.sass";
 import { LandPage } from "./LandPage";
 
 // execution
 
 const appElement = document.getElementById("root");
 
-ReactDom.render(<LandPage name="land page" color="green" />, appElement);
+ReactDom.render(<LandPage name="land page" color="green" lol="pepe" />, appElement);

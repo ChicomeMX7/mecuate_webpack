@@ -1,6 +1,6 @@
 const path = require("path");
-const entryPoints = require("./custom.utils/getEntry");
-const createHTML = require("./custom.utils/createHTML");
+const entryPoints = require("./getEntry");
+const createHTML = require("./createHTML");
 const pagesHTML = createHTML(path.join(__dirname, "../src/pages/"));
 
 
@@ -13,7 +13,7 @@ module.exports = {
 	},
 	mode: "development",
 	resolve: {
-		extensions: [".tsx", ".ts"/* , ".js" */],
+		extensions: [".tsx", ".ts", ".js"],
 	},
 	plugins: [...pagesHTML],
 	module: {

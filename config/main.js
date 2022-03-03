@@ -20,9 +20,17 @@ const param = (function org_params(val) {
 	return total_instructions;
 })(process.argv);
 
-
-function ui(typ = "0", msg = "null") {
+function ui(typ = "tfxdff", msg = "null") {
 	return {
+		tfxdff: (m) => {
+			return `\x1b[48;2;231;72;86m\x1b[38;5;253m\x1b[1m ${m} message \x1b[0m`;
+		},
+		new:(m) => {
+			return `\x1b[38;2;13;188;121m\x1b[1m${m}\x1b[0m`;
+		},
+		path: (m) => {
+			return `\x1b[38;2;252;127;0m\x1b[1m${m}\x1b[0m`;
+		},
 		error: (m) => {
 			return `\x1b[48;2;231;72;86m\x1b[38;5;253m\x1b[1m ${m}  \x1b[0m\x1b[38;2;231;72;86m   Error!\x1b[0m`;
 		},
@@ -35,11 +43,46 @@ function ui(typ = "0", msg = "null") {
 	}[typ](msg);
 }
 
+function getsQuotes(str, isPath = false) {
+	if (isPath) return `"${str}"`;
+	return str.includes(" ") || str.includes(":") ? `"${str}"` : str;
+}
+
 function main(ins) {
 	const oOperations = {
-		one: (confs) => {
-			let result = child_process.execSync("npx --version && node --version", UTF8);
-			console.log("@@@ FISRT \x0a", result);
+		"set:entry": (confs) => {
+			let new_Name;
+			let new_path;
+			let target = confs && confs.length ? confs[0] : false;
+			// let result = child_process.execSync("npx --version && node --version", UTF8);
+			let entries = fs.readFileSync(path.join(__dirname, "/getEntry.js"), UTF8);
+			let regex0 = /^(.*?):(.*?),$/gim;
+			let evsect = [...entries.matchAll(regex0)];
+			let newOrder = [];
+			for (let i = 0; i < evsect.length; i++) {
+				let _check = null;
+				if (target) _check = evsect[i][1].includes(target) ? true : evsect[i][2].includes(target) ? true : false;
+				if (_check) {
+					newOrder.unshift(`${evsect[i][0]}`);
+				} else {
+					newOrder.push(`${evsect[i][0]}`);
+				}
+			}
+			let fileToWrite = "const entryPoints = {\r\n";
+			let composite = "";
+			for (let i = 0; i < newOrder.length; i++) {
+				composite += `${newOrder[i]}\r\n`;
+			}
+			new_Name = target;
+			new_path = confs[1] ? confs[1] : `./src/components/${confs[0]}/${confs[0]}.tsx`;
+			if (target && (!composite.includes(confs[0]) || !!(confs[1] && !composite.includes(confs[1])))) {
+				let newEntry = `    ${getsQuotes(new_Name)}: ${getsQuotes(new_path, true)},\r\n`;
+				fileToWrite += newEntry;
+			}
+			fileToWrite += composite;
+			fileToWrite += "}\r\nmodule.exports = entryPoints;";
+			fs.writeFileSync(path.join(__dirname, "custom.utils/getEntry.js"), fileToWrite, UTF8);
+			console.log(`File piped for devServer: [${ui('new',new_Name)}] @<${ui('path',new_path)}>`);
 		},
 		two: (confs) => {
 			console.log("From SECOND function", confs);
@@ -48,7 +91,7 @@ function main(ins) {
 			console.log("webpack serve --config config/webpack.config.dev.js --stats-error-details");
 		},
 		set: (confs) => {
-			console.log("THIS IS SET VALUE DEFAULT");
+			console.log(ui("warn", "There is no configuration setup for this command"));
 		},
 		server: (confs = null) => {
 			let result = child_process.execSync("npx --version", UTF8);

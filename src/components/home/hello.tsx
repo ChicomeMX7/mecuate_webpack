@@ -4,7 +4,7 @@ import React from "react";
 function Hello(props) {
 	return (
 		<div>
-			<h1 className={props.color}>MECUATE today {new Date().toDateString()} page</h1>
+			<h1 className={props.color}>MECUATE foul {new Date().toDateString()} page</h1>
 		</div>
 	);
 }

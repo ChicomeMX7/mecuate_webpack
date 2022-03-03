@@ -3,3 +3,4 @@
 ///<reference  path="./components/header.d.ts"/>
 ///<reference  path="./engine/map.d.ts"/>
 ///<reference  path="./components/user.d.ts"/>
+///<reference  path="./components/landingpage.d.ts"/>

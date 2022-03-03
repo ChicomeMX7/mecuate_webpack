@@ -2,5 +2,17 @@
 	"title": "JSON DATA GOTTED",
 	"keywords": "USER, PEPE, MECUATE, WEBPACK",
 	"description": "Description ftect corresponding to the USER section",
-	"theme": "#566be2"
+	"theme": "#566be2",
+	"index": {
+		"title": "Mecuate Astrophytum",
+		"keywords": "iztapalapa, cdmx, MECUATE, Mexico, cerro de la estrella, ecologia, educacion, ambiental",
+		"description": "Mecuate astrophytum es la cooperativa en el cerro de la esrella involucrada y enfocada a la educacion ambiental y a la promocion de mejores practicas ecologicas y eco educativas.",
+		"theme": "theme.mecuate.main",
+		"meta": {
+			"og:title": "The Rock",
+			"og:type": "video.movie",
+			"og:url": "mecuate.org",
+			"og:image": "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.HP-Xo0xA-nrnD4uDfCbXJQHaHa%26pid%3DApi&f=1"
+		}
+	}
 }

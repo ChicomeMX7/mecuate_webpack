@@ -45,7 +45,7 @@ function createHtml(page_path) {
 				stylet: addStyles("/src/styles/main.css"),
 				// chunks: [`${item}.js`, `${item}-parsed.js`],
 				inject: true,
-				template: path.join(__dirname, "custom.utils/template.html"),
+				template: path.join(__dirname, "template.html"),
 				filename: item === "index" ? "index.html" : `${item}/index.html`,
 				minify: {
 					removeComments: true,
