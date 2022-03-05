@@ -1,0 +1,67 @@
+
+@use "sass:map"
+
+$orange: #ffaa00
+$black-text: #14181a
+$dark-text: #303a3d
+$light-text: #a7dbd9
+$white: #fbfffe
+$paper: #e4e8d6
+$black: #040018
+
+$green-main: #00822b
+$green-hi: #50d64c
+$green-pastel: #66ffb2
+
+$yellow-green: #e4ffb6
+$red: #ff3a3a
+$red-dark: #600f0f
+$lila: #df88ff
+$purple: #731aff
+$blue: #063af7
+$blue-dark: #203556
+$carne: #fce4cd
+
+/* themes */
+
+$theme-mecuate: (
+    "main" : $green-main,
+    "central" : $green-hi,
+    "user" : $purple,
+    "text" : $dark-text,
+    "back" : $paper,
+    "error":$red,
+    "warn": $orange ,
+    "second": $blue,
+    "new": $blue,
+    "fill.background": $blue-dark,
+    "fill.foreground": $light-text
+    )
+
+$theme-dark: (
+    "main" : $green-main,
+    "central" : $green-hi,
+    "user" : $purple,
+    "text" : $light-text,
+    "back" : $black,
+    "error":$red,
+    "warn": $orange ,
+    "second": $lila,
+    "new": $blue,
+    "fill.background": $blue-dark,
+    "fill.foreground": $light-text
+    )
+
+$theme-light: (
+    "main" : $green-main,
+    "central" : $green-hi,
+    "user" : $purple,
+    "text" : $black-text,
+    "back" : $white,
+    "error":$red,
+    "warn": $orange ,
+    "second": $lila,
+    "new": $blue,
+    "fill.background": $blue-dark,
+    "fill.foreground": $light-text
+    )

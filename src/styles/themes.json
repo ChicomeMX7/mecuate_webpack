@@ -1,0 +1,34 @@
+{
+	"colors": {
+		"$orange": "#ffaa00",
+		"$dark-text": "#303a3d",
+		"$light-text": "#a7dbd9",
+		"$paper": "#e4e8d6",
+		"$black": "#040018",
+		"$green-main": "#00822b",
+		"$green-hi": "#50d64c",
+		"$green-pastel": "#66ffb2",
+		"$yellow-green": "#e4ffb6",
+		"$red": "#ff3a3a",
+		"$red-dark": "#600f0f",
+		"$lila": "#df88ff",
+		"$purple": "#731aff",
+		"$blue": "#063af7",
+		"$blue-dark": "#203556",
+		"$carne": "#fce4cd"
+	},
+	"theme": {
+		"mecuate": {
+			"main": "$green-main",
+			"central": "$green-hi",
+			"user": "$purple",
+			"text": "$dark-text",
+			"back": "$paper",
+			"error": "$red",
+			"warn": "$orange ",
+			"second": "$blue",
+			"new": "$blue",
+			"headfill": "$blue-dark"
+		}
+	}
+}

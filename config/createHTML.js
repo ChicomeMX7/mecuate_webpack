@@ -2,8 +2,12 @@ const fs = require("fs");
 const path = require("path");
 const getPath = require("./getPath");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const urlPage = [];
+const st_ = require('../src/styles/themes.json');
 
+
+
+const urlPage = [];
+const wr = require("./logger");
 
 function addScript(obj) {
 	const type = {
@@ -13,23 +17,26 @@ function addScript(obj) {
 	}[obj.type ? obj.type : "nada"];
 	return `<script src="${obj.link}" ${type}></script>`;
 }
+
+function getTheme(keyStr) {
+	let key = keyStr.split('.');
+	wr(null,key);
+	return st_.colors[st_.theme[key[1]][key[2]]];
+}
+
 function addStyles(dir) {
 	return `<link rel="stylesheet" href="${dir}" />`;
 }
 
 function createHtml(page_path) {
 	const htmlPages = getPath(page_path);
-	// TODO fix the json info path by name and attributes by the correct assosiation of file
+
 	let infoJson = {};
 	infoJson = fs.readFileSync(path.join(__dirname, "../src/pages/pagesInfo.json"), "utf-8");
-	htmlPages.map((item, i) => {
-		let infoData = {};
+	let parsedJson = JSON.parse(infoJson);
 
-		try {
-			infoData = JSON.parse(infoJson);
-		} catch (err) {
-			infoData = {};
-		}
+	htmlPages.map((item, i) => {
+		let infoData = parsedJson[item] ? parsedJson[item] : {};
 
 		urlPage.push(
 			new HtmlWebpackPlugin({
@@ -38,7 +45,7 @@ function createHtml(page_path) {
 					keywords: infoData.keywords ? infoData.keywords : "=== WARNING ===",
 					description: infoData.description ? infoData.description : "=== WARNING ===",
 					location: infoData.location ? infoData.location : "=== WARNING ===",
-					theme: infoData.theme ? infoData.theme : "null",
+					"theme-color": infoData.theme ? getTheme(infoData.theme) : "#50d64c",
 				},
 				script: `/code/${item}.bundle.js`,
 				addExtra: infoData.addExtra ? addScript(infoData.addExtra) : "<!-- pass -->",

@@ -25,7 +25,7 @@ function ui(typ = "tfxdff", msg = "null") {
 		tfxdff: (m) => {
 			return `\x1b[48;2;231;72;86m\x1b[38;5;253m\x1b[1m ${m} message \x1b[0m`;
 		},
-		new:(m) => {
+		new: (m) => {
 			return `\x1b[38;2;13;188;121m\x1b[1m${m}\x1b[0m`;
 		},
 		path: (m) => {
@@ -54,11 +54,11 @@ function main(ins) {
 			let new_Name;
 			let new_path;
 			let target = confs && confs.length ? confs[0] : false;
-			// let result = child_process.execSync("npx --version && node --version", UTF8);
-			let entries = fs.readFileSync(path.join(__dirname, "/getEntry.js"), UTF8);
+			let entries = fs.readFileSync(path.join(__dirname, "./getEntry.js"), UTF8);
 			let regex0 = /^(.*?):(.*?),$/gim;
 			let evsect = [...entries.matchAll(regex0)];
 			let newOrder = [];
+
 			for (let i = 0; i < evsect.length; i++) {
 				let _check = null;
 				if (target) _check = evsect[i][1].includes(target) ? true : evsect[i][2].includes(target) ? true : false;
@@ -68,21 +68,48 @@ function main(ins) {
 					newOrder.push(`${evsect[i][0]}`);
 				}
 			}
+
 			let fileToWrite = "const entryPoints = {\r\n";
 			let composite = "";
+
 			for (let i = 0; i < newOrder.length; i++) {
 				composite += `${newOrder[i]}\r\n`;
 			}
 			new_Name = target;
 			new_path = confs[1] ? confs[1] : `./src/components/${confs[0]}/${confs[0]}.tsx`;
+
 			if (target && (!composite.includes(confs[0]) || !!(confs[1] && !composite.includes(confs[1])))) {
 				let newEntry = `    ${getsQuotes(new_Name)}: ${getsQuotes(new_path, true)},\r\n`;
 				fileToWrite += newEntry;
 			}
+
 			fileToWrite += composite;
 			fileToWrite += "}\r\nmodule.exports = entryPoints;";
-			fs.writeFileSync(path.join(__dirname, "custom.utils/getEntry.js"), fileToWrite, UTF8);
-			console.log(`File piped for devServer: [${ui('new',new_Name)}] @<${ui('path',new_path)}>`);
+			fs.writeFileSync(path.join(__dirname, "./getEntry.js"), fileToWrite, UTF8);
+			let file;
+
+			try {
+				file = fs.openSync(path.join(__dirname, `.${new_path}`), "ax");
+				fs.appendFileSync(file, "data to append", "utf8");
+			} catch (error) {
+				console.log("there was an error in opening file...\n", "trying building the path");
+				let curatedPath = `.${new_path
+					.split("/")
+					.filter((item) => {
+						return !item.includes(".tsx");
+					})
+					.join("/")}/`;
+				let folder = fs.mkdirSync(path.join(__dirname, curatedPath), { recursive: true });
+				console.log("Created 1st folder is ::", folder);
+				file = fs.openSync(path.join(__dirname, `.${new_path}`), "ax");
+				fs.appendFileSync(file, "data to append", "utf8");
+			}
+
+			if (file) {
+				console.log(`File ${ui("new", "Created & piped")} for devServer: [${ui("new", new_Name)}] @<${ui("path", new_path)}>`);
+			} else {
+				console.log(`File piped for devServer: [${ui("new", new_Name)}] @<${ui("path", new_path)}>`);
+			}
 		},
 		two: (confs) => {
 			console.log("From SECOND function", confs);
