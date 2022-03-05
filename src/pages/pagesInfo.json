@@ -1,5 +1,54 @@
 {
 	"title": "JSON DATA GOTTED",
 	"keywords": "USER, PEPE, MECUATE, WEBPACK",
-	"description": "Description ftect corresponding to the USER section"
+	"description": "Description ftect corresponding to the USER section",
+	"theme": "#5nonok",
+	"index": {
+		"title": "Mecuate Astrophytum",
+		"keywords": "iztapalapa, cdmx, MECUATE, Mexico, cerro de la estrella, ecologia, educacion, ambiental",
+		"description": "Mecuate astrophytum es la cooperativa en el cerro de la esrella involucrada y enfocada a la educacion ambiental y a la promocion de mejores practicas ecologicas y eco educativas.",
+		"theme": "theme.mecuate.main",
+		"meta": {
+			"og:title": "Mecuate Astrophytum",
+			"og:type": "website",
+			"og:url": "mecuate.org",
+			"og:image": "https://i.ibb.co/4WK52tr/osso-small.jpg"
+		}
+	},
+	"home": {
+		"title": "Mecuate Central",
+		"keywords": "iztapalapa, cdmx, MECUATE, Mexico, cerro de la estrella, ecologia, educacion, ambiental",
+		"description": "Mecuate astrophytum es la cooperativa en el cerro de la esrella involucrada y enfocada a la educacion ambiental y a la promocion de mejores practicas ecologicas y eco educativas.",
+		"theme": "theme.mecuate.central",
+		"meta": {
+			"og:title": "Central de contenidos",
+			"og:type": "website",
+			"og:url": "mecuate.org/home",
+			"og:image": "https://i.ibb.co/4WK52tr/osso-small.jpg"
+		}
+	},
+	"user": {
+		"title": "Cuate Mecuate",
+		"keywords": "iztapalapa, cdmx, MECUATE, Mexico, cerro de la estrella, ecologia, educacion, ambiental",
+		"description": "Mecuate astrophytum es la cooperativa en el cerro de la esrella involucrada y enfocada a la educacion ambiental y a la promocion de mejores practicas ecologicas y eco educativas.",
+		"theme": "theme.mecuate.user",
+		"meta": {
+			"og:title": "Mi Pagina",
+			"og:type": "website",
+			"og:url": "mecuate.org/user",
+			"og:image": "https://i.ibb.co/4WK52tr/osso-small.jpg"
+		}
+	},
+	"contact": {
+		"title": "Contacto",
+		"keywords": "iztapalapa, cdmx, MECUATE, Mexico, cerro de la estrella, ecologia, educacion, ambiental",
+		"description": "Mecuate astrophytum es la cooperativa en el cerro de la esrella involucrada y enfocada a la educacion ambiental y a la promocion de mejores practicas ecologicas y eco educativas.",
+		"theme": "theme.mecuate.main",
+		"meta": {
+			"og:title": "Contacto",
+			"og:type": "website",
+			"og:url": "mecuate.org/contact",
+			"og:image": "https://i.ibb.co/4WK52tr/osso-small.jpg"
+		}
+	}
 }

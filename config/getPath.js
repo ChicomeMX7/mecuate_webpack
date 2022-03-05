@@ -1,8 +1,3 @@
-/**
- * @param {String} path 路径
- * @returns {Array} ["about","index"]
- */
-
 const fs = require("fs");
 
 module.exports = function getPath(path) {

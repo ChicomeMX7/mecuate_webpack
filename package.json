@@ -2,15 +2,15 @@
   "name": "mecuate",
   "version": "1.0.0",
   "description": "Web application to host multicultural proyects",
-  "main": "main.js",
+  "main": "config/main.js",
   "scripts": {
-    "main": "node config/main",
-    "webpack:serve": "webpack serve --mode development",
+    "dev": "node config/main",
+    "start": "node config/main",
     "cls": "node config/main clear",
-    "build": "webpack --config config/webpack.config.js --stats-error-details",
-    "test": "jest --config config/jest.config.js",
-    "test:coverage": "jest  --config config/jest.config.js --coverage",
-    "serve": "webpack s -c config/webpack.config.js"
+    "build": "webpack --config config/webpack.config.prod.js",
+    "test": "jest --config config/jest/jest.config.js",
+    "test:cov": "jest --config config/jest/jest.config.js --coverage",
+    "serve": "webpack serve --config config/webpack.config.dev.js --stats-error-details"
   },
   "keywords": [
     "educacion",
@@ -39,6 +39,7 @@
     "@types/react-dom": "^17.0.11",
     "babel-loader": "^8.2.3",
     "css-loader": "^6.6.0",
+    "file-loader": "^6.2.0",
     "html-loader": "^3.1.0",
     "html-webpack-plugin": "^5.5.0",
     "jest": "^27.5.1",

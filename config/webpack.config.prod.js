@@ -1,11 +1,7 @@
 const fs = require("fs");
 const path = require("path");
-const createHtml = require("./create-html");
-let htmlPath = path.join(__dirname, "../src/pages/");
-const htmlArr = createHtml(htmlPath);
-const value = {
-	mode: "production",
-};
+const createHTML = require("./createHTML");
+const pagesHTML = createHTML(path.join(__dirname, "../src/pages/"));
 
 
 module.exports = {
@@ -42,16 +38,6 @@ module.exports = {
 		"react-dom": ["/code/cdn/react-dom.js","ReactDOM"],
 		react: ["/code/cdn/react.js", "React"],
 	},
-	devServer: {
-		static: {
-			directory: path.join(__dirname, "../../htdocs/"),/* compiled */
-			serveIndex: true,
-		},
-		compress: false,
-		port: 9000,
-		open: true,
-		hot: true,
-	},
 	devtool: false,
 	resolve: {
 		extensions: [".tsx", ".ts", ".js"],
@@ -67,6 +53,6 @@ module.exports = {
 		filename: "code/[name].bundle.js",
 		publicPath: path.join(__dirname, "../../htdocs/"), // compiled
 	},
-	mode: value.mode ? value.mode : "development",
-	plugins: [...htmlArr],	
+	mode: "production",
+	plugins: [...pagesHTML],	
 };

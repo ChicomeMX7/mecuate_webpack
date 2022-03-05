@@ -11,6 +11,7 @@ let contactObjects = <div>
     <Contact_mainBox>
         Here is a text string!
     </Contact_mainBox>
-    <Contacts value="3" name="greet"/>
+    <Contacts value="3" name="contact"/>
 </div>;
+
 ReactDOM.render(contactObjects, document.getElementById('root'));
