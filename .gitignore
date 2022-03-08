@@ -2,3 +2,5 @@ node_modules
 coverage
 .vscode
 log
+*.log
+config/x_x.js
