@@ -1,0 +1,19 @@
+@use "sass:math"
+
+@function minmax( $min, $max )
+    $r: math.div($max,$min)
+    $const: calc(($min + 6) * ( (100vw - $max) / $r))
+    @return $const
+
+.b200x120
+    width: 200px
+    height: 120px
+
+.ev_sq_mid
+    width: calc( 50vw - (260px / 2 ))
+    height: calc( (100vh/2.16) - (260px/ 5))
+    padding: 4px 16px
+    border-radius: 2mm
+
+.border1
+    border: 1px solid $white

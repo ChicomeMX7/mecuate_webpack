@@ -1,40 +1,57 @@
 @use "sass:map"
-@import 'palette'
+@import palette, boxes, positions
 
-::root
-	--main: $beach-0
-	--central: $beach-1
-	--user: $beach-2
-	--text: $beach-3
-	--back: $beach-4
-	--error: $beach-5
-	--warn: $beach-6
-	--second: $beach-7
-	--new: $soil-2
-	--fill-background: $forest-2
-	--fill-foreground: $vintage-1
-	
-$active: ( "main" : map.get( $theme-mecuate,"main"), "central" : map.get( $theme-mecuate,"central"), "user" : map.get( $theme-mecuate,"user"), "text" : map.get( $theme-mecuate,"text"), "back" : map.get( $theme-mecuate,"back"), "error" : map.get( $theme-mecuate,"error"), "warn" : map.get( $theme-mecuate,"warn"), "second" : map.get( $theme-mecuate,"second"), "new" : map.get( $theme-mecuate,"new"), "fill.background" : map.get( $theme-mecuate,"fill.background"), "fill.foreground" : map.get( $theme-mecuate,"fill.foreground"), )
-$back-color: crimson
-$fiusha: #e230ad
-$greenlight: #9fdfc1
-$black: #19191a
+:root
+	--main: #{$green-main}
+	--central: #{$green-hi}
+	--user: #{$purple}
+	--text: #{$text}
+	--back: #{$paper}
+	--error: #{$red}
+	--warn: #{$orange}
+	--second: #{$green-pastel}
+	--new: #{$blue}
+	--fill-background: #{$blue-dark}
+	--fill-foreground: #{$light-text}
+
+*
+	box-sizing: border-box
 
 body
-	background: map.get( $active,"back")
+	background: var(--back)
+
+
 h1,h2,h3,h4,h5,h6
-	color: map.get( $active,"second")
+	color: var(--text)
+
+
 hr
-	background: map.get( $active,"back")
-	border-color: map.get( $active,"second")
+	border-color: var(--fill-background)
 	border-width: 1px
 
-p, span
-	color: map.get( $active,"text")
-.positon
-	color: red
-	font-size: 45px
-	font-weight: 600
+
+p, span, div, li
+	color: var(--text)
+
+
+.block
+	display: block
+
 
 .fiusha
-	color: map.get( $active,"main")
+	color: var(--main)
+
+@media (prefers-color-scheme: dark )
+	:root
+		--main: #{$beach-4}
+		--central: #{$beach-1}
+		--user: #{$beach-2}
+		--text: #{$beach-3}
+		--back: #{$black}
+		--error: #{$beach-5}
+		--warn: #{$beach-6}
+		--second: #{$beach-7}
+		--new: #{$soil-2}
+		--fill-background: #{$forest-2}
+		--fill-foreground: #{$vintage-1}
+	

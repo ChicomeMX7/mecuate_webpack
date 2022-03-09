@@ -13,4 +13,4 @@ import { LandPage } from "./LandPage";
 
 const appElement = document.getElementById("root");
 
-ReactDom.render(<LandPage name="land page" color="green" lol="pepe" />, appElement);
+ReactDom.render(<LandPage name={"land page"} color="green" lol="pepe" />, appElement);
