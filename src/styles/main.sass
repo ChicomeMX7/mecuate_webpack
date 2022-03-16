@@ -1,5 +1,6 @@
 @use "sass:map"
-@import palette, boxes, positions
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap')
+@import palette, boxes, positions, mixins, landingpage
 
 :root
 	--main: #{$green-main}
@@ -9,16 +10,19 @@
 	--back: #{$paper}
 	--error: #{$red}
 	--warn: #{$orange}
-	--second: #{$green-pastel}
+	--second: #{$green-hi}
 	--new: #{$blue}
 	--fill-background: #{$blue-dark}
 	--fill-foreground: #{$light-text}
 
 *
 	box-sizing: border-box
+	margin: 0
+	padding: 0
 
 body
 	background: var(--back)
+	font-family: 'Baloo 2', cursive
 
 
 h1,h2,h3,h4,h5,h6

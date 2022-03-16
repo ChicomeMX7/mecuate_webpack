@@ -4,7 +4,7 @@
   "description": "Web application to host multicultural proyects",
   "main": "config/main.js",
   "scripts": {
-    "dev": "node config/main",
+    "dev": "node config/main --dev",
     "start": "node config/main",
     "cls": "node config/main clear",
     "build": "webpack --config config/webpack.config.prod.js",
@@ -46,6 +46,7 @@
     "sass": "^1.49.7",
     "sass-loader": "^12.6.0",
     "style-loader": "^3.3.1",
+    "three": "^0.138.3",
     "ts-jest": "^27.1.3",
     "ts-loader": "^9.2.6",
     "typescript": "^4.5.5",
