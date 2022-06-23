@@ -1,16 +1,26 @@
-/**
- * @param { --TYPINGS-- }
- */
 ///<reference  path="../../../src/typings/main.d.ts"/>
-/**
- * @param { --COMPONENTS-- }
- */
-import React from "react";
-import ReactDom from "react-dom";
-import { LandPage } from "./LandPage";
 
-// execution
+import React from 'react'
+import ReactDom from 'react-dom'
+import '../../styles/main.sass'
+import { Sample } from './s'
+import { MecuateApiProvider,baseConfig } from '../../api/network'
 
-const appElement = document.getElementById("root");
+const target = document.getElementById('root') || document.body
 
-ReactDom.render(<LandPage name="land page" color="green" lol="pepe" />, appElement);
+const __a = MecuateApiProvider.patch('h', {
+  data: ['hello from frontend', 45, 78],
+  accept: baseConfig.accept,
+  type: baseConfig.type
+} )
+
+// const op = __a
+
+console.log('__a', __a)
+
+ReactDom.render(<Sample />, target)
+
+/* 
+TODO:
+* https://github.com/mifi/react-lottie-player
+*/

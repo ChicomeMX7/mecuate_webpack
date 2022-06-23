@@ -20,7 +20,6 @@ function addScript(obj) {
 
 function getTheme(keyStr) {
 	let key = keyStr.split('.');
-	wr(null,key);
 	return st_.colors[st_.theme[key[1]][key[2]]];
 }
 
@@ -50,7 +49,6 @@ function createHtml(page_path) {
 				script: `/code/${item}.bundle.js`,
 				addExtra: infoData.addExtra ? addScript(infoData.addExtra) : "<!-- pass -->",
 				stylet: addStyles("/src/styles/main.css"),
-				// chunks: [`${item}.js`, `${item}-parsed.js`],
 				inject: true,
 				template: path.join(__dirname, "template.html"),
 				filename: item === "index" ? "index.html" : `${item}/index.html`,
