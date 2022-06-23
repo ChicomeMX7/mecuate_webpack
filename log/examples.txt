@@ -1,0 +1,5 @@
+using react scripts for type configurations ::: 
+    git@github.com:molucax/react-hooks-ts.git
+
+using same react scripts:::
+    git@github.com:skovy/react-hooks-typescript-example.git

@@ -1,0 +1,111 @@
+===== dependencies
+npm i cookie date-fns deepmerge immer jspdf jwt-decode lodash ms.macro query-string react react-cookie react-dom react-dropzone react-horizontal-scrolling-menu react-paginate react-portal react-query use-immer uuid three
+
+react-lottie
+
+
+
+
+===== dev dependencies
+
+npm i -D @radix-ui/react-dropdown-menu @radix-ui/react-id @radix-ui/react-popover @radix-ui/react-scroll-area @radix-ui/react-tooltip 
+
+npm i -D @babel/cli
+npm i -D @babel/core \
+npm i -D @babel/preset-env \
+
+npm i -D @babel/preset-react
+npm i -D @babel/preset-typescript
+npm i -D @react-three/drei
+npm i -D @types/jest
+npm i -D @types/react-dom
+npm i -D @types/three 
+npm i -D babel-loader
+npm i -D css-loader
+npm i -D file-loader
+npm i -D html-loader
+npm i -D html-webpack-plugin
+npm i -D react-hook-form
+npm i -D react-three-fiber sass sass-loader style-loader
+npm i -D ts-jest  ts-loader
+npm i -D webpack
+npm i -D webpack-cli webpack-dev-server 
+npm i -D @types/three  @babel/core  @stitches/react 
+
+* npm i -D @testing-library/jest-dom 
+* npm i -D @testing-library/react 
+* npm i -D @testing-library/react-hooks
+* npm i -D @testing-library/user-event
+* 
+* npm i -D @types/jest-axe 
+
+npm i -D @types/lodash 
+npm i -D @types/ms.macro 
+npm i -D @types/react @types/uuid 
+npm i -D @typescript-eslint/eslint-plugin 
+npm i -D @typescript-eslint/parser
+npm i -D babel-jest babel-loader babel-plugin-macros
+
+
+npm i -D eslint eslint-config-prettier eslint-plugin-import eslint-plugin-jest-dom eslint-plugin-jsx-a11y eslint-plugin-prettier eslint-plugin-react eslint-plugin-react-hooks
+* eslint-plugin-testing-library 
+
+npm i -D husky
+npm i -D hygen
+npm i -D identity-obj-proxy
+npm i -D jest
+npm i -D jest-axe jest-canvas-mock jest-clean-console-reporter jest-extended
+npm i -D openapi-typescript
+npm i -D prettier
+npm i -D react-app-polyfill
+npm i -D typescript
+
+**-4  npm i -D svg-sprite
+
+@types/react-lottie
+
+============ last part of package.json ?
+"lint-staged": {
+    "**/*.{js,ts,tsx}":[
+        "bash -c 'tsc --noEmit'",
+        "eslint --fix",
+        "jest --bail --findRelatedTests"
+    ],
+    "*.{ts,tsx,css,md,json}": "prettier --write"
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
