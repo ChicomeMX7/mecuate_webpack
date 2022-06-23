@@ -1,0 +1,5 @@
+/* themes */
+
+$theme-mecuate: ( "main" : $green-main, "central" : $green-hi, "user" : $purple, "text" : $dark-text, "back" : $paper, "error":$red, "warn": $orange , "second": $blue, "new": $blue, "fill.background": $blue-dark, "fill.foreground": $light-text )
+$theme-dark: ( "main" : $green-main, "central" : $green-hi, "user" : $purple, "text" : $light-text, "back" : $black, "error":$red, "warn": $orange , "second": $lila, "new": $blue, "fill.background": $blue-dark, "fill.foreground": $light-text )
+$theme-light: ( "main" : $green-main, "central" : $green-hi, "user" : $purple, "text" : $black-text, "back" : $white, "error":$red, "warn": $orange , "second": $lila, "new": $blue, "fill.background": $blue-dark, "fill.foreground": $light-text )
