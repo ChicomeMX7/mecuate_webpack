@@ -43,7 +43,8 @@ module.exports = {
 	devServer: {
 		static: path.join(__dirname, "../../htdocs"),
 		compress: false,
-		port: 9898,
+		host: 'mecuate-dev.com',
+		port: 8080,
 		open: true,
 		hot: true,
 	},

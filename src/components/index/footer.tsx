@@ -1,5 +1,4 @@
 import React from "react";
-import { ReactDOM } from "react-dom";
 import { Button } from "../shared/Button";
 
 const Footer = (props: Mecuate.Props) => {
