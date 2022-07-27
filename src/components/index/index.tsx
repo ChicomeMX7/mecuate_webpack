@@ -7,11 +7,11 @@
  */
 import React from "react";
 import ReactDom from "react-dom";
-import "../../styles/main.sass";
 
 function Hei(props) {
 	return (
 		<div>
+			<h4>Running a website inside webpack</h4>
 			<h1 id="name_of_title">{props.name}</h1>
 			<h4>RECIEVING THE PARAMETER</h4>
 			<span>{new Date().toDateString()}</span>

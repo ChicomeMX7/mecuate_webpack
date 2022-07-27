@@ -7,7 +7,6 @@ const value = {
 	mode: "production",
 };
 
-
 module.exports = {
 	module: {
 		rules: [
