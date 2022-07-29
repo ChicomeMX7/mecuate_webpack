@@ -52,7 +52,7 @@ export const createAPIClient = (baseURL: string) => {
             type: user.Token ? user.Token : 'Bearer',
             token: user?.accessToken,
         }
-        const headers = {
+        const headers:Headers = {
             Accept: 'application/json',
         }
         if (user?.accessToken) {

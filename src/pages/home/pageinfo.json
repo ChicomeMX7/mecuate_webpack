@@ -1,8 +1,0 @@
-{
-    "title":"Home page json",
-    "keywords":"HOME, JSON, PAGE, RELATIONS",
-    "description":"META STRING FROM JSON FILE INSIDE DIRACTORY",
-    "location":"CDMX, Mexico 2022",
-    "link":["./src/css/file.1.from.json.css","./src/css/file.2.from.json.css"],
-    "script":["home.bundle.js","[item]/[item].bundle.js"]
-}

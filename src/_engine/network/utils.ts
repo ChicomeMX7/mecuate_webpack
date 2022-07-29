@@ -1,8 +1,8 @@
 import { ParamsObject } from '../../typings/network/index'
 
-const decode = (params) => {
+const decode = (params: ParamsObject) => {
     const convert = {
-        object: (k, v) => {
+        object: (k: string, v: any) => {
             if (v.length) {
                 return `${k}=${v.toString()}`
             }
@@ -13,19 +13,37 @@ const decode = (params) => {
             res += ']'
             return res
         },
-        function: (k, v) => `exec=${k}`,
-        string: (k, v) => `${k}=${v}`,
-        number: (k, v) => `${k}=${v}`,
-        boolean: (k, v) => `${k}=${v}`,
+        function: (k: string, v: any) => `exec=${k}`,
+        string: (k: string, v: any) => `${k}=${v}`,
+        number: (k: string, v: any) => `${k}=${v}`,
+        boolean: (k: string, v: any) => `${k}=${v}`,
+        bigint: (k: string, v: any) => '',
+        symbol: (k: string, v: any) => '',
+        undefined: (k: string, v: any) => '',
     }
 
     let result = '?'
+    const KeyNames = [
+        'object',
+        'function',
+        'string',
+        'number',
+        'boolean',
+        'bigint',
+        'symbol',
+        'undefined',
+    ]
 
     for (const key in params) {
         if (Object.hasOwnProperty.call(params, key)) {
-            const item = params[key] ? typeof params[key] : null
+            const prev = typeof params[key]
+            const item: keyof typeof convert = KeyNames.includes(prev)
+                ? `${prev}`
+                : 'undefined'
+
             if (!item) continue
-            result += convert[item](key, params[key])
+            const fun = convert[item]
+            result += fun(key, params[key])
             result += '&'
         }
     }

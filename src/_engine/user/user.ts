@@ -1,4 +1,4 @@
-import { _cookie } from '../storage/storage.js'
+import { _cookie } from '../storage/storage'
 
 const user = (() => {
     const user_cookies = _cookie.get('user')

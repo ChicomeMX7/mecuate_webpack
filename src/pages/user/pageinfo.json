@@ -1,8 +1,0 @@
-{
-    "title":"User page json",
-    "keywords":"USER, JSON, PAGE, RELATIONS",
-    "description":"META STRING FROM JSON FILE INSIDE DIRACTORY",
-    "location":"CDMX, Mexico 2022",
-    "link":["./src/css/file.3.from.json.css","./src/css/file.4.from.json.css"],
-    "script":["[item].bundle.js","[item]/[item].bundle.js"]
-}

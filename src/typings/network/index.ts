@@ -5,7 +5,10 @@ export type Method = 'GET' | 'POST' | 'CREATE' | 'PATCH' | 'OPTIONS' | 'DELETE'
 
 export type Data = BodyInit | GenericObject | string | undefined | null
 
-export type Headers = {}
+export type Headers = HeadersInit & {
+    Authorization?: string
+    [key: string | number | symbol]: string | undefined | null
+}
 
 export type ResponseType = 'json' | 'text' | 'bytes'
 
