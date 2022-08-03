@@ -6,11 +6,7 @@ export const LandingPageRoot = styled('div', {
     display: 'block',
     position: 'relative',
 
-
-    '& > span':{
+    '& > span': {
         position: 'absolute',
-
-    }
-
-    
+    },
 })

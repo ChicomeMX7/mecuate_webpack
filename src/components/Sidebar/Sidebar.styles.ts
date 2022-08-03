@@ -14,6 +14,8 @@ export const Nav = styled('div', {
     position: 'absolute',
     justifyContent: 'flex-start',
     alignItems: 'center',
+    zIndex: 1000,
+    cursor: 'pointer',
 })
 
 export const NavIcon = styled('a', {
@@ -23,6 +25,7 @@ export const NavIcon = styled('a', {
     display: 'flex',
     justifyContent: 'flex-start',
     alignItems: 'center',
+    cursor: 'pointer',
 })
 const Blur = "blur(7px)"
 
@@ -39,7 +42,7 @@ export const SidebarNav = styled('nav', {
     position: 'fixed',
     top: 0,
     transition: '350ms',
-    zIndex: 10,
+    zIndex: 1001,
     variants: {
         panLeft: {
             true: {

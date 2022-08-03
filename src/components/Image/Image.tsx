@@ -14,7 +14,7 @@ export const Image = ({ src, source }: ImageProps) => {
     const { gi } = useImage()
 
     return (
-        <ImageRoot object-fit>
+        <ImageRoot object-fit={'cover'}>
             <ImageSrc src={src ? gi(src) : source} />
         </ImageRoot>
     )
