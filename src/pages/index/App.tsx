@@ -1,18 +1,13 @@
-import { MainContainer } from './App.styles'
-import { Text } from '@/components/Text'
-import { globalStyles } from '@/stitches.conf'
+import { globalStyles, gradients } from '@/stitches.conf'
+import { Layout } from '@/components/Layout'
+
 
 function App() {
     globalStyles()
+    gradients()
 
-    return (
-        <div className="App">
-            <MainContainer>
-                <Text variant={'green'} size={'max'}>
-                    {'Hello'}
-                </Text>
-            </MainContainer>
-        </div>
+    return (        
+      <Layout className="App" />
     )
 }
 
