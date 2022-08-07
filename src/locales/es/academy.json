@@ -1,0 +1,14 @@
+{
+    "frontPage":{
+        "title": "Bienvenido a la Academia mecuate astrophytum",
+        "description": "this academy is made for all peoples from anywhrer in the universe."
+    },
+    "workShopPage":{
+        "groupName": "Nombre de Grupo",
+        "groupType":{
+            "solid": "Grupo sólido",
+            "stable": "Grupo fijo",
+            "morph": "Grupo Anomórfico"
+        }
+    }
+}

@@ -16,7 +16,7 @@ export const Icon = ({ icon, label, color, css, size }: IconProps) => {
     return (
         <IconRoot
             css={{
-                fill: color ? `$${color}` : '$main_accent',
+                fill: color ? `$${color}` : '$m_main',
                 ...(css as any),
             }}
             role={label ? 'img' : 'presentation'}

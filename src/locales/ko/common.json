@@ -1,0 +1,25 @@
+{
+    "menu": {
+        "home": "메큐에이트",
+        "mecuate": "메큐에이트",
+        "academy": "학원",
+        "services": "서비스",
+        "docuweb": "도큐웹",
+        "projects": "프로젝트",
+        "publications": "게시",
+        "contact": "접촉",
+        "previousWorkShops": "이전의",
+        "nextWorkShops": "다음에 컴밍",
+        "currentWorkShops": "전류",
+        "production": "생산",
+        "docuweb_2021": "Ambiental Docuweb (2021)",
+        "project_00": "메즈티틀란",
+        "project_01": "크리스마스 꽃",
+        "project_02": "스타 힐",
+        "project_03": "제목 없음 (Noplea)",
+        "project_04": "재배",
+        "project_05": "별 언덕의 식물상",
+        "academic": "별 언덕의 식물상",
+        "blogs": "학술 간행물 다른 미디어"
+    }
+}

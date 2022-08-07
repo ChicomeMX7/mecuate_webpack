@@ -13,4 +13,4 @@ class game {
 	}
 }
 
-const _g_: _example.game = new game("jim");
+export const _g_: _example.game = new game("jim");

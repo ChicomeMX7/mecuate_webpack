@@ -2,10 +2,12 @@
 
 export const imageRepository = 
 {
-  "landing:landingPage.poster": "http://localhost/_assets_server/images/cerro/cerro-panoramic-dron.jpg",
+  "landing:landingPage.poster1": "http://localhost/_assets_server/images/cerro/cerro-panoramic-dron.jpg",
+  "landing:landingPage.poster": "http://localhost/_assets_server/images/cerro/desert.jpg",
   "personnel:profile.pepe": "/_assets_server/images/personnel/pepe.jpg"
 }
 
 export type iKeyNames = 
-  'landing:landingPage.poster'
+  'landing:landingPage.poster1'
+| 'landing:landingPage.poster'
 | 'personnel:profile.pepe'

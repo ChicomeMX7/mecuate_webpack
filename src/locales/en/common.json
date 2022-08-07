@@ -1,0 +1,25 @@
+{
+    "menu": {
+        "home": "mecuate",
+        "mecuate": "Mecuate",
+        "academy": "Academy",
+        "services": "Services",
+        "docuweb": "DocuWeb",
+        "projects": "Projects",
+        "publications": "Publications",
+        "contact": "Contact",
+        "previousWorkShops": "Previous",
+        "nextWorkShops": "Comming next",
+        "currentWorkShops": "Current",
+        "production": "Production",
+        "docuweb_2021": "Ambiental Docuweb (2021)",
+        "project_00" :"Meztitlan",
+        "project_01" :"Christmas flower",
+        "project_02" :"Stars Hill",
+        "project_03" :"Untitled (Noplea)",
+        "project_04" :"Cultivarte",
+        "project_05" :"Flora of the Stars Hill",
+        "academic": "Academic publications",
+        "blogs": "Other media"
+    }
+}

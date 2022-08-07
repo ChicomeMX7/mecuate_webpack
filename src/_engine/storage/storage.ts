@@ -1,10 +1,13 @@
-const set_cookie_time = (value) => {
+const set_cookie_time = (value: string | number | boolean) => {
+    const v_bol = typeof value === 'boolean'
+    const new_value = v_bol ? '' : value
+
     try {
-        const _date = new Date(value)
+        const _date = new Date(new_value)
         return _date.toUTCString()
     } catch (error) {
-        return standard_cookie_duration()
     }
+    return standard_cookie_duration()
 }
 
 const standard_cookie_duration = () => {
@@ -23,9 +26,9 @@ const standard_cookie_duration = () => {
     return date_time
 }
 
-const gmt_time_string = () => new Date().toGMTString()
+const gmt_time_string = () => new Date().toUTCString()
 
-const create_cookie = (name, data, time = false) => {
+const create_cookie = (name: string, data: string | object, time = false) => {
     const _time = time ? set_cookie_time(time) : standard_cookie_duration()
     const string_data = typeof data === 'string' ? data : JSON.stringify(data)
     document.cookie = `${name}=${string_data}; SameSite=Lax; Secure; ${_time}`
@@ -34,7 +37,7 @@ const create_cookie = (name, data, time = false) => {
 const read_cookie = () => {
     const all = document.cookie.split('; ').map((item) => {
         const cookieSection = item.split('=')
-        const res = {}
+        const res:any = {} // TODO(pepe): [change type]
         res[`${cookieSection[0]}`] = JSON.parse(cookieSection[1])
         return res
     })
@@ -42,7 +45,7 @@ const read_cookie = () => {
     return all
 }
 
-const get_cookie = (cname) => {
+const get_cookie = (cname:string) => {
     const target = document.cookie
         .split('; ')
         .find((row) => row.startsWith(`${cname}=`))

@@ -1,10 +1,13 @@
-import { globalStyles, gradients } from '@/stitches.conf'
+import { globalStyles } from '@/stitches.conf'
+import { gradientStyles } from "@/assets/styles/Gradients";
+import { scrollStyles } from "@/assets/styles/Scrolls";
 import { Layout } from '@/components/Layout'
 
 
 function App() {
     globalStyles()
-    gradients()
+    gradientStyles()
+    scrollStyles()
 
     return (        
       <Layout className="App" />

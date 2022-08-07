@@ -1,14 +1,13 @@
 import React, { useState, ComponentProps } from 'react'
 import { Nav, NavIcon, SidebarNav, SidebarWrap } from './Sidebar.styles'
 import { Icon } from '@/components/Icon'
-import { SidebarData } from './components/menusData'
+import { SidebarData } from '@/constructs/menusData'
 import { SubMenu } from './components/SubMenu'
 
 type SidebarOwnProps = ComponentProps<typeof Nav>
 export type SidebarProps = SidebarOwnProps & {
     _name_?: string
 }
-
 
 export const Sidebar = ({}: SidebarProps) => {
     const [sidebar, setSidebar] = useState(false)
@@ -19,16 +18,22 @@ export const Sidebar = ({}: SidebarProps) => {
         <>
             <Nav>
                 <NavIcon onClick={showSidebar}>
-                    <Icon icon={'menu'} />
+                    <Icon color={'text_li'} size={'medium'} icon={'menu'} />
                 </NavIcon>
             </Nav>
             <SidebarNav panLeft={sidebar} blured={true}>
                 <SidebarWrap>
                     <NavIcon onClick={showSidebar}>
-                        <Icon icon={'close'} />
+                        <Icon
+                            color={'text_li'}
+                            size={'medium'}
+                            icon={'close'}
+                        />
                     </NavIcon>
                     {SidebarData.map((item, index) => {
-                        return <SubMenu to={item.path} item={item} key={index} />
+                        return (
+                            <SubMenu to={item.path} item={item} key={index} />
+                        )
                     })}
                 </SidebarWrap>
             </SidebarNav>

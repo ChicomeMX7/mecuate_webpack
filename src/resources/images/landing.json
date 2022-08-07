@@ -1,5 +1,6 @@
 {
     "landingPage":{
-        "poster": "/_assets_server/images/cerro/cerro-panoramic-dron.jpg"
+        "poster1": "http://localhost/_assets_server/images/cerro/cerro-panoramic-dron.jpg",
+        "poster": "http://localhost/_assets_server/images/cerro/desert.jpg"
     }
 }

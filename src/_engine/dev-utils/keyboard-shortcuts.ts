@@ -1,8 +1,9 @@
-function admin_shortKey(e) {
+
+function admin_shortKey(e:any) {
 
     if (e.shiftKey && e.code === 'ArrowDown') {
         window.location.hash = ''
-        window.location.reload(true)
+        window.location.reload()
     }
     if (e.shiftKey && e.code === 'ArrowUp') {
         window.location.hash = '#ovWiki'

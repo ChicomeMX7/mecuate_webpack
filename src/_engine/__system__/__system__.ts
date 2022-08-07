@@ -1,5 +1,5 @@
 ///<reference  path="../../../src/typings/main.d.ts"/>
-const __system__: okt.system = {
+export const __system__: okt.system = {
     callsToAPIsTiles:0,
     call:(req: any,opts:any|null = null,offset=null)=>{
         

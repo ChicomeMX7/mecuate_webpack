@@ -11,6 +11,7 @@
     "test": "jest",
     "mk-icons": "node config/makeIcons.cjs",
     "mk-images": "node config/makeImages.cjs",
+    "mk-locales": "node config/makeTranslations.cjs",
     "mk": "node config/create.cjs"
   },
   "dependencies": {

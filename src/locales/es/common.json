@@ -1,0 +1,25 @@
+{
+    "menu": {
+        "home": "mecuate",
+        "mecuate": "Mecuate",
+        "academy": "Academia",
+        "services": "Servicios",
+        "docuweb": "DocuWeb",
+        "projects": "Proyectos",
+        "publications": "Publicaciones",
+        "contact": "Contacto",
+        "previousWorkShops": "Previos",
+        "nextWorkShops": "Proximos",
+        "currentWorkShops": "Actuales",
+        "production": "Producción",
+        "docuweb_2021": "Docuweb ambiental (2021)",
+        "project_00" :"Meztitlan",
+        "project_01" :"Nochebuena",
+        "project_02" :"Cerro de la Estrella",
+        "project_03" :"Sin Titulo (Noples)",
+        "project_04" :"cultivarte",
+        "project_05" :"La flora del cerro de la estrella",
+        "academic": "Publicaciones academicas",
+        "blogs": "Otros medios"
+    }
+}

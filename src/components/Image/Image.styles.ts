@@ -7,6 +7,7 @@ export const ImageRoot = styled('div', {
     overflow: 'hidden',
     width: '100%',
     height: '100%',
+    objectFit: 'cover'
 })
 
 export const ImageSrc = styled('img', {

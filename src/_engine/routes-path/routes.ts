@@ -1,5 +1,22 @@
-const convertURI = ({ pathname, search, href, host }) => {
-    let w_ = {}
+export type URIParams = {
+    pathname: string
+    search: string
+    href: string
+    host: string
+}
+
+export type w_type = {
+    path_parts?: Array<any>
+    grado?: string
+    edu?: boolean
+    furl?: string
+    host?: string
+    task?: string
+    [key:string | number]: string | boolean | undefined | Array<any>
+}
+
+const convertURI = ({ pathname, search, href, host }:URIParams) => {
+    let w_:w_type = {}
     let path_parts = pathname.split('/')
     w_.path_parts = path_parts.filter((i) => !!i)
     path_parts.forEach((e) => {
