@@ -14,23 +14,13 @@ function _main_() {
         true,
         2
     )}\n\nexport type iKeyTranslations = ${keys_string}\n\nexport type LangKeys = keyof typeof validTranslationKeys`
+
     const filep = `${env.PWD}/src/locales/translationKeys.ts`
     const confp = `${env.PWD}/.prettierrc.json`
     fs.writeFileSync(filep, result)
     cp.exec(`prettier --config ${confp} --write ${filep}`)
 
     console.log('RESULT TERMINATED')
-}
-
-function _names_iterator(allKeys) {
-    const arr = Object.keys(allKeys)
-    let txt = ' '
-
-    for (const item of arr) {
-        txt += `'${item}' | `
-    }
-
-    return txt.substring(0, txt.length - 1)
 }
 
 function _extract_names(allFolders) {

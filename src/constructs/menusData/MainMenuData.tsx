@@ -1,12 +1,16 @@
 import React from 'react'
 import { Icon } from '@/components/Icon'
 import { Text } from '@/components/Text'
+import { useTranslation } from "@/hooks/useTranslations";
+
+const t = useTranslation()
 
 export const SidebarData = [
     {
         title: (
             <Text size={'mid'} font={'sans'} weight={'bold'}>
-                Mecuate
+                {/* {t('common:menu.home')} */}
+                {t('academy:workShopPage.groupType.morph')}
             </Text>
         ),
         path: '/mecuate',

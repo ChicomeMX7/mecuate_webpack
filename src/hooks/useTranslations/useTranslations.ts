@@ -1,4 +1,4 @@
-import { validTranslationKeys, iKeyTranslations, LangKeys } from '@/locales/translationKeys'
+import { validTranslationKeys, LangKeys } from '@/locales/translationKeys'
 
 enum Language {
     es = 'es',
@@ -6,16 +6,29 @@ enum Language {
     ko = 'ko',
 }
 
+export type magicObj = {
+    [key: string | number]: string | number
+}
+
 export const getActiveLanguage = () => {
-    return Language.es
+    return Language.en
 }
 
 export const useTranslation = () => {
     const lang: LangKeys = getActiveLanguage()
+    const selectedLanguage = validTranslationKeys[lang]
 
-    return {
-        t: (key: iKeyTranslations) => {
-            return validTranslationKeys[lang][key]
-        },
+    return (key: keyof typeof selectedLanguage, binds?: magicObj) => {
+        let value = selectedLanguage[key] ? selectedLanguage[key] : key
+
+        if (selectedLanguage[key] && binds) {
+            const words = Object.keys(binds)
+
+            for (const item of words) {
+                const curStr = binds[item].toString()
+                value = value.replace(`{{${item}}}`, curStr)
+            }
+        }
+        return value
     }
 }
